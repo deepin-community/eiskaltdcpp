@@ -1,4 +1,47 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpkg/pkg-info.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+CMAKEOPTS = -DUSE_ASPELL=ON \
+            -DUSE_CLI_JSONRPC=ON \
+            -DUSE_GTK=OFF \
+            -DUSE_GTK3=ON \
+            -DUSE_IDNA=ON \
+            -DUSE_JS=ON \
+            -DUSE_LIBGNOME2=OFF \
+            -DUSE_LIBNOTIFY=ON \
+            -DUSE_MINIUPNP=ON \
+            -DUSE_QT5=ON \
+            -DUSE_QT=OFF \
+            -DUSE_QT_QML=OFF \
+            -DUSE_QT_SQLITE=ON \
+            -DUSE_LIBCANBERRA=ON \
+            -DWITH_DEV_FILES=ON \
+            -DWITH_DHT=ON \
+            -DWITH_LUASCRIPTS=ON \
+            -DWITH_SOUNDS=ON \
+            -DCREATE_MO=ON \
+            -DUPDATE_PO=OFF \
+            -DLUA_SCRIPT=ON \
+            -DPERL_REGEX=ON \
+            -DNO_UI_DAEMON=ON \
+            -DXMLRPC_DAEMON=OFF \
+            -DJSONRPC_DAEMON=ON \
+            -DCHECK_GTK_DEPRECATED=OFF \
+            -DCMAKE_BUILD_RPATH_USE_ORIGIN=ON \
+            -DREPLACE_VERSION="$(DEB_VERSION_UPSTREAM)"
+
+EXCLUDE_FILES = usr/share/eiskaltdcpp/emoticons/*/READ_ME.txt \
+                usr/share/eiskaltdcpp/sounds/READ_ME.txt
+
 %:
 	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(CMAKEOPTS)
+
+override_dh_install:
+	cd $(CURDIR)/debian/tmp && rm -f $(EXCLUDE_FILES)
+	dh_install

@@ -1,0 +1,51 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
+#pragma once
+
+#include <QDialog>
+#include <QEvent>
+
+#include "dcpp/stdinc.h"
+#include "dcpp/SearchManager.h"
+
+#include "ui_UIMagnet.h"
+
+class Magnet :
+        public QDialog,
+        private Ui::UIMagnet
+{
+Q_OBJECT
+public:
+    explicit Magnet(QWidget *parent = nullptr);
+    virtual ~Magnet();
+
+    void setLink(const QString &);
+    enum MagnetAction {
+      MAGNET_ACTION_SHOW_UI = 0,
+      MAGNET_ACTION_SEARCH = 1,
+      MAGNET_ACTION_DOWNLOAD = 2
+    };
+    void setLink(const QString &, MagnetAction action);
+    virtual int exec();
+private:
+    MagnetAction currentAction;
+private slots:
+    void saveWindowSize();
+    void search();
+    void download();
+    void slotCopyMagnet();
+    void slotCopySearchString();
+    void slotBrowse();
+    void showUI(const QString &, const qulonglong &, const QString &);
+    void search(const QString &, const qulonglong &, const QString &);
+    void searchTTH(const QString&);
+    void searchFile(const QString&);
+    void download(const QString &, const qulonglong &, const QString &);
+};
