@@ -97,13 +97,12 @@ Description: sound files for EiskaltDC++
  FlylinkDC++ and other DC clients. EiskaltDC++ also interoperates with all
  common DC hub software.
 
-Package: libeiskaltdcpp2.4t64
-Provides: ${t64:Provides}
+Package: libeiskaltdcpp2.4
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Replaces: libeiskaltdcpp2.4, libeiskaltdcpp2.2
-Breaks: libeiskaltdcpp2.4 (<< ${source:Version}), libeiskaltdcpp2.2
+Replaces: libeiskaltdcpp2.2
+Breaks: libeiskaltdcpp2.2
 Multi-Arch: no
 Description: core library for EiskaltDC++
  This package contains core library which is used by all EiskaltDC++ programs.
@@ -116,7 +115,7 @@ Description: core library for EiskaltDC++
 Package: libeiskaltdcpp-dev
 Section: libdevel
 Architecture: any
-Depends: libeiskaltdcpp2.4t64 (= ${binary:Version}), ${misc:Depends}
+Depends: libeiskaltdcpp2.4 (= ${binary:Version}), ${misc:Depends}
 Multi-Arch: no
 Description: core library for EiskaltDC++ (development files)
  This package contains development files for EiskaltDC++ core library.
