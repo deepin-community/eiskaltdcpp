@@ -1,0 +1,49 @@
+.TH "eiskaltdcpp-cli-xmlrpc" 1 "19 Feb 2012"
+.SH "NAME"
+EiskaltDC++_CLI \- simple command line interface for EiskaltDC++ Daemon written on perl
+.SH "SYNOPSIS"
+.PP
+.B eiskaltdcpp-cli-xmlrpc
+.br
+.B eiskaltdcpp-cli-xmlrpc
+<Key>
+.SH "DESCRIPTION"
+.PP
+\fBEiskaltDC++\fP is a cross-platform program that uses the Direct Connect and ADC protocols. It is compatible with DC++, AirDC++, FlylinkDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.
+.PP
+To use this program you need first install few perl modules:
+.br
+Getopt::Long
+.br
+Data::Dump
+.br
+Term::ShellUI
+.br
+RPC::XML
+.SH "COMMAND LINE OPTIONS"
+.RB "A summary of options is included below."
+.TP
+.BR "\-h,  \-\-help"
+Display help and exit
+.TP
+.BR "\-V,  \-\-version"
+Show version information and exit
+.SH "FILES"
+.TP
+.B "~/.config/eiskaltdc++/" or "$XDG_CONFIG_HOME/eiskaltdc++/"
+Directory with user configuration files and logs
+.TP
+.B "/usr/local/share/eiskaltdcpp/cli/" or "/usr/share/eiskaltdcpp/cli/"
+Directory with default configuration file
+.SH "DOCUMENTATION"
+.TP
+Actual README file you can always find here: \fBhttps://raw.github.com/eiskaltdcpp/eiskaltdcpp/master/eiskaltdcpp-cli/README\fR
+.SH AUTHOR
+This program was written by Dmitry Kolosov <onyx@z-up.ru> and others (see file AUTHORS).
+.br
+EiskaltDC++ homepage: \fBhttps://github.com/eiskaltdcpp/eiskaltdcpp/\fR
+.SH "BUG REPORTS"
+If you find a bug in EiskaltDC++ please report it here:
+.B https://github.com/eiskaltdcpp/eiskaltdcpp/issues
+.PP
+This manual page was written by Boris Pek <tehnick-8@yandex.ru> for the Debian project (and may be used by others).
