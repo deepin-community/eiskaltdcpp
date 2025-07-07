@@ -1,3 +1,0 @@
-# There is no stable API in this library.
-libeiskaltdcpp2.4t64: no-symbols-control-file usr/lib/libeiskaltdcpp.so.2.4
-libeiskaltdcpp2.4t64: package-name-doesnt-match-sonames libeiskaltdcpp2.4
